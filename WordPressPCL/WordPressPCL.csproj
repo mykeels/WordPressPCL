@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFrameworks>netcoreapp1.1;net46</TargetFrameworks>
     <DocumentationFile>WordPressPCL.xml</DocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>Thomas Pentenrieder</Authors>
     <Company>medienstudio.net</Company>
-    <Description>This is a portable library for consuimg the WordPress REST-API in (almost) any C# application.</Description>
+    <Description>This is a portable library for consuming the WordPress REST-API in (almost) any C# application.</Description>
     <PackageProjectUrl>https://github.com/wp-net/WordPressPCL</PackageProjectUrl>
     <RepositoryUrl>https://github.com/wp-net/WordPressPCL</RepositoryUrl>
     <PackageTags>WordPress REST API</PackageTags>
@@ -20,6 +20,12 @@
     <Copyright>© Thomas Pentenrieder | 2017</Copyright>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+    <PackageReference Include="System.ValueTuple" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Net.Http" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
     <PackageReference Include="System.ValueTuple" Version="4.3.0" />
   </ItemGroup>
